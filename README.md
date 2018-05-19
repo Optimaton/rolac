@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/raghu-veer/rolac.svg?branch=master)](https://travis-ci.org/raghu-veer/rolac)
 ## rolac - role based account control
 A command line utility to manage users based on role
 
@@ -22,4 +23,6 @@ A command line utility to manage users based on role
 > More operations willbe added if I still find this interesting in future
 
 > Note: An user created with admin role will have elevated privileges. proxyadmin will have one less privilege than admin (although proxyadmin also is in the elevated position to run system wide commands)
+
+WORK UNDER PROGRESS !
 
