@@ -1,4 +1,4 @@
-## rbum - role based user mgmt
+## rolac - role based account control
 A command line utility to manage users based on role
 
 > **Features:**
@@ -11,12 +11,13 @@ A command line utility to manage users based on role
 >**Usage:**
 >
 > ***User Mgmt Operations:***
->`accounts create [user | admin | proxyadmin] "username"`
->`accounts delete "username"`
->`accounts modify "username" level [user | admin | proxyadmin]`
->`accounts lockout "username"`
->`accounts import "username" "path-to-public-key" (if the user has copied the key)`
->`accounts import "username" "user@remote-access-ip-address:port" (if key is not copied)`
+
+>`rolac create [user | admin | proxyadmin] "username"`  
+>`rolac delete "username"`  
+>`rolac modify "username" level [user | admin | proxyadmin]`  
+>`rolac lockout "username"`  
+>`rolac copy "username" "path-to-public-key" (if the user has copied the key)`  
+>`rolac copy "username" "user@remote-access-ip-address:port" (if key is not copied)`  
 
 > More operations willbe added if I still find this interesting in future
 
