@@ -141,4 +141,3 @@ void Key::usage()
   std::cout << out.str() << std::endl;
   std::exit(EXIT_FAILURE);
 }
-TT
