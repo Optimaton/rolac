@@ -12,10 +12,10 @@ A command line utility to manage users based on role
 >
 > ***User Mgmt Operations:***
 
->`rolac create "username" [user | admin]
+>`rolac create "username" [user | admin]`  
 >`rolac delete "username"`  
 >`rolac modify "username" level [user | admin]`  
->`rolac lockout "username"` [max-attempts | max-duration]
+>`rolac lockout "username" [max-attempts | max-duration]`  
 >`rolac copy "username" "path-to-public-key" (if the user has copied the key)`  
 >`rolac copy "username" "user@remote-access-ip-address:port" (if key is not copied)`  
 
