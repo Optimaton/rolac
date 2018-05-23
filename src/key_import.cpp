@@ -25,7 +25,7 @@ void Key::exec(int argc, byte** argv)
 bool Key::argchk(int argc, byte** argv) 
 {
   if (argc != MIN_ARG_CNT && argc != MAX_ARG_CNT) 
-    return hndl_err(UserError::INVALID_ARG_COUNT);
+    return hndl_err(UsrErr::INVLD_ARG_CNT);
 
   set_arg_cnt(argc); /* set argument count */
 
@@ -37,14 +37,14 @@ bool Key::argchk(int argc, byte** argv)
 
 
   if (main_arg_nam != MAIN_ARG_NAM) /* Incorrect main arg*/
-    return hndl_err(UserError::INVALID_MAIN_ARG);
+    return hndl_err(UsrErr::INVLD_MAIN_ARG);
   
   if (sub_arg_nam != SUB_ARG_NAM) /* Incorrect sub arg */
-    return hndl_err(UserError::INVALID_SUB_ARG);
+    return hndl_err(UsrErr::INVLD_SUB_ARG);
 
   /* username needs to be checked if present or not */
   if ( !is_usr(usr_nam) ) /* user not present*/
-    return hndl_err(UserError::INVALID_USER_NAME);
+    return hndl_err(UsrErr::INVLD_USR_NAM);
  
   if(!chk_cmd_prms(argv)) 
     return FAILURE;
@@ -73,7 +73,7 @@ bool Key::chk_cmd_prms(byte** argv)
     /* TODO(raghu): normalize path to prevent path injection */
     std::ifstream key_path(argv[CMD_IDX + 1]);
     if ( !key_path.good())
-      return hndl_err(UserError::INVALID_PATH);
+      return hndl_err(UsrErr::INVLD_PATH);
 
   }
   if (m_arg_cnt == MAX_ARG_CNT) {
@@ -127,7 +127,7 @@ bool Key::vrfy_key()
   cmd += m_arg_lst[MIN_ARG_CNT - 1]; /* get id_rsa */
  
   if (get_cmd_out(cmd.c_str()).empty()) /* we are suppressing stderr */
-    return hndl_err(UserError::INVALID_KEY);
+    return hndl_err(UsrErr::INVLD_KEY);
 
   return SUCCESS;
 }
@@ -141,4 +141,4 @@ void Key::usage()
   std::cout << out.str() << std::endl;
   std::exit(EXIT_FAILURE);
 }
-
+TT

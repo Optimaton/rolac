@@ -1,24 +1,28 @@
 #ifndef __ERROR_HANDLER_HPP__
 #define __ERROR_HANDLER_HPP__
 
-enum class InternalError {
+enum class IntrnlErr {
   ERROR_CREATING_TMP_KEYSTORE,
+  USR_CREATION_FAILED,
 };
 
-enum class UserError {
-  INVALID_ARG_COUNT,
-  INVALID_MAIN_ARG,
-  INVALID_SUB_ARG,
-  INVALID_USER_NAME,
-  INVALID_PATH,
-  INVALID_KEY,
+enum class UsrErr {
+  INVLD_ARG_CNT,
+  INVLD_MAIN_ARG,
+  INVLD_SUB_ARG,
+  INVLD_USR_NAM,
+  INVLD_PATH,
+  INVLD_KEY, 
+  USR_ALREADY_PRSNT,
+  PASSWD_MISMATCH,
+  INVLD_USR_LVL,
 };
 
 /* overload to handle internal error */
-bool hndl_err(InternalError internalError);
+bool hndl_err(IntrnlErr intrnl_err);
 
 /* overload to handle user error */
-bool hndl_err(UserError userError);
+bool hndl_err(UsrErr usr_err);
 
 #endif // __ERROR_HANDLER_HPP__
 
