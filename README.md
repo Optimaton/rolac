@@ -1,3 +1,5 @@
+[![Language CPP](https://img.shields.io/badge/Language-C%2B%2B-green.svg)](https://isocpp.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Build Status](https://travis-ci.org/raghu-veer/rolac.svg?branch=master)](https://travis-ci.org/raghu-veer/rolac)
 ## rolac - role based account control
 A command line utility to manage users based on role
