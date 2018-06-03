@@ -1,5 +1,3 @@
-[![Language CPP](https://img.shields.io/badge/Language-C%2B%2B-green.svg)](https://isocpp.org/)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/raghu-veer/rolac/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/raghu-veer/rolac.svg?branch=master)](https://travis-ci.org/raghu-veer/rolac)
 ## rolac - role based account control
 A command line utility to manage users based on role
@@ -26,4 +24,3 @@ A command line utility to manage users based on role
 > TODO(raghu): An user created with admin role will have elevated privileges. proxyadmin will have one less privilege than admin (although proxyadmin also is in the elevated position to run system wide commands)
 
 WORK UNDER PROGRESS !
-
