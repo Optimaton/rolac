@@ -99,6 +99,19 @@ bool Create::cmd()
   return m_is_usr_created;
 }
 
+/* Escape special characters before copying to /etc/passwd */
+void Create::esc_spl_seq()
+{
+  size_t pos, prev = 0;
+  while ((pos = m_passwd.find(esc_seq, prev)) != std::string::npos) {
+    if (pos >= prev) {
+      m_passwd.replace(pos, 1, "\\$");
+    }
+
+    prev = pos + 2;
+  } 
+}
+
 /* https://www.gnu.org/software/libc/manual/html_node/crypt.html */
 void Create::encrypt_passwd()
 {
@@ -116,13 +129,13 @@ void Create::encrypt_passwd()
     salt[3+i] = seed_char[(seed[i/5] >> (i%5)*6) & 0x3f];
 
   char* encrypted_passwd = crypt(m_passwd.c_str(), salt);
-  std::cout << "Salt: " << salt << std::endl;
-  std::cout << "Encrypted Password: " << encrypted_passwd << std::endl;
-  puts(encrypted_passwd);
+ 
   if (encrypted_passwd != nullptr) {
     std::string ep(encrypted_passwd);
     m_passwd = ep;
   }
+
+  esc_spl_seq();
 }
 
 /* prompt for passwd and return if passwd don't match on confirmation */
@@ -169,8 +182,7 @@ void Create::create_admin_usr()
                     m_passwd + 
                     " -s /bin/bash -G rolac-admin " + 
                     m_arg_lst[CMD_IDX];
-  std::cout << cmd << std::endl;
-  if (get_cmd_out(cmd.c_str()).empty())
+  if (get_cmd_out(cmd.c_str()).empty() && get_sta_code() != 0)
    m_is_usr_created = hndl_err(IntrnlErr::USR_CREATION_FAILED); 
  
   m_is_usr_created = SUCCESS;  
@@ -180,6 +192,13 @@ void Create::create_admin_usr()
 /* create basic user registered to rolac-users group */
 void Create::create_basic_usr()
 {
+  std::string cmd = std::string("useradd -m -p ") + 
+                    m_passwd + 
+                    " -s /bin/bash -G rolac-usr " + 
+                    m_arg_lst[CMD_IDX];
+  if (get_cmd_out(cmd.c_str()).empty() && get_sta_code() != 0)
+   m_is_usr_created = hndl_err(IntrnlErr::USR_CREATION_FAILED); 
+ 
   m_is_usr_created = SUCCESS;
 }
 

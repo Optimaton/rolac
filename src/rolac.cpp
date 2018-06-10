@@ -56,3 +56,9 @@ std::string Rolac::get_cmd_out(std::string cmd)
   }
   return res;
 }
+
+/* Return command status code */
+int Rolac::get_sta_code()
+{
+  return std::stoi(get_cmd_out("echo $?"));
+}

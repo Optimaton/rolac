@@ -27,6 +27,7 @@ class Rolac {
     
     bool is_usr(std::string usr_nam);
     std::string get_cmd_out(std::string cmd);
+    int get_sta_code();
   private:
     /* We are going to keep it pure virtual for time being */
     virtual bool argchk(int argc, byte** argv) = 0;

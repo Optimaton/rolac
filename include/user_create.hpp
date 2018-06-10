@@ -23,6 +23,7 @@ class Create : Rolac {
     std::string passwd_prmpt(std::string prmpt);
     void get_passwd();
     void encrypt_passwd();
+    void esc_spl_seq();
     void create_admin_usr();
     void create_basic_usr();
     
@@ -54,7 +55,9 @@ class Create : Rolac {
     /* SEED char */
     const char* const SEED_CHAR = "./0123456789ABCDEFGHIJKLMNOPQRST"
                                     "UVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    /* escape sequence */
+    const char esc_seq = '$';
 };
 
 #endif // __USER_CREATE_HPP__
-
