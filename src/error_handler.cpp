@@ -30,6 +30,7 @@ bool hndl_err(IntrnlErr intrnl_err)
   switch(intrnl_err) {
     case IntrnlErr::ERROR_CREATING_TMP_KEYSTORE: err_msg += "Error creating temporary key store. Please try to run with elevated privilege"; break;
     case IntrnlErr::USR_CREATION_FAILED: err_msg += "Error creating user. Internal Error"; break;
+    case IntrnlErr::USR_DELETION_FAILED: err_msg += "Error deleting user. Internal Error"; break;
   }
   
   std::cout << err_msg << std::endl;

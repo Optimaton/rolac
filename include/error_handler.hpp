@@ -4,6 +4,7 @@
 enum class IntrnlErr {
   ERROR_CREATING_TMP_KEYSTORE,
   USR_CREATION_FAILED,
+  USR_DELETION_FAILED,
 };
 
 enum class UsrErr {

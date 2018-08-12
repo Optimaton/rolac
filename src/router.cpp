@@ -7,6 +7,7 @@
 #include <string>
 #include "key_import.hpp"
 #include "user_create.hpp"
+#include "user_delete.hpp"
 #include "router.hpp"
 
 Router::Router(int argc, char** argv )
@@ -24,7 +25,11 @@ void Router::route(int argc, char** argv)
               create.exec(argc, argv);
               break;
   }
-  case RolacType::DELETE: break; // TODO(raghu): complete delete
+  case RolacType::DELETE: {
+	      Delete del;
+	      del.exec(argc, argv);
+	      break; 
+  }
   case RolacType::MODIFY: break; // TODO(raghu): complete modify
   case RolacType::LOCKOUT: break; // TODO(raghu): complete lockout
   case RolacType::COPY: { 

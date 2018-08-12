@@ -35,7 +35,7 @@ class Rolac {
     virtual void usage() = 0;
     virtual void set_arg_cnt(int argc) = 0;
     virtual void populate_arg_lst(byte** argv) = 0;
-    virtual bool chk_cmd_prms(byte** argv) = 0;
+    virtual bool chk_cmd_prms(byte** argv) {}
     
 };
 
